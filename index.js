@@ -1,11 +1,6 @@
 'use strict'
 
-module.exports = {
-  unescape,
-  escape,
-  encode,
-  decode
-}
+
 
 function unescape (str) {
   return (str + '==='.slice((str.length + 3) % 4))
@@ -25,4 +20,11 @@ function encode (str, encoding) {
 
 function decode (str, encoding) {
   return Buffer.from(unescape(str), 'base64').toString(encoding || 'utf8')
+}
+
+module.exports = {
+  unescape:unescape,
+  escape:escape,
+  encode:encode,
+  decode:decode
 }
